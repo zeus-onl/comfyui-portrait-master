@@ -1,8 +1,16 @@
 # PORTRAIT MASTER
 # Created by AI Wiz Art (Stefano Flore)
-# Version: 3.6.0
+# Version: 3.6.1
 # https://stefanoflore.it
 # https://ai-wiz.art
+#
+# --- FORK PATCH (zeus.onl / Marcus Haupt, 31.07.2026) ---
+# Fixed: seed widget defaulting to NaN after ComfyUI reload/session restore.
+# Cause: seed INT input in INPUT_TYPES had no default/min/max, so the
+# frontend had nothing to fall back to on reload. Added proper bounds
+# to all seed fields (BaseCharacter, SkinDetails, StylePose, Makeup,
+# FaceGenerator). See CHANGELOG.md for details.
+# ----------------------------------------------------------
 
 import os
 import random
@@ -92,7 +100,7 @@ class PortraitMasterBaseCharacter:
         preset_files = get_presets(s.preset_class)
 
         return {
-            "optional": {"text_in": ("STRING", {"forceInput": True}), "seed": ("INT", {"forceInput": False})},
+            "optional": {"text_in": ("STRING", {"forceInput": True}), "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False})},
             "required": {
                 "shot": (['-'] + [rand_opt] + lists['shot'], {"default": '-'}),
                 "shot_weight": ("FLOAT", {"default": 1, "step": 0.05, "min": 0, "max": max_float_value, "display": "slider"}),
@@ -322,7 +330,7 @@ class PortraitMasterSkinDetails:
         max_float_value = 2
         preset_files = get_presets(s.preset_class)
         return {
-            "optional": {"text_in": ("STRING", {"forceInput": True}),"seed": ("INT", {"forceInput": False})},
+            "optional": {"text_in": ("STRING", {"forceInput": True}),"seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False})},
             "required": {
                 "natural_skin": ("FLOAT", {"default": 0,"min": 0,"max": max_float_value,"step": 0.05,"display": "slider"}),
                 "bare_face": ("FLOAT", {"default": 0,"min": 0,"max": max_float_value,"step": 0.05,"display": "slider"}),
@@ -422,7 +430,7 @@ class PortraitMasterStylePose:
         max_float_value = 2
         preset_files = get_presets(s.preset_class)
         return {
-            "optional": {"text_in": ("STRING", {"forceInput": True}), "seed": ("INT", {"forceInput": False})},
+            "optional": {"text_in": ("STRING", {"forceInput": True}), "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False})},
             "required": {
                 "model_pose": (['-'] + [rand_opt] + lists['model_pose'], {"default": '-'}),
                 "clothes": (['-'] + [rand_opt] + lists['clothes'], {"default": '-'}),
@@ -516,7 +524,7 @@ class PortraitMasterMakeup:
         max_float_value = 2
         preset_files = get_presets(s.preset_class)
         return {
-            "optional": {"text_in": ("STRING", {"forceInput": True}), "seed": ("INT", {"forceInput": False})},
+            "optional": {"text_in": ("STRING", {"forceInput": True}), "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False})},
             "required": {
                 "makeup_style": (['-'] + [rand_opt] + lists['makeup'], {"default": '-'}),
                 "makeup_color": (['-'] + [rand_opt] + lists['makeup_color'], {"default": '-'}),
@@ -590,7 +598,7 @@ class PortraitMasterFaceGenerator:
     def INPUT_TYPES(s):
         preset_files = get_presets(s.preset_class)
         return {
-            "optional": {"text_in": ("STRING", {"forceInput": True}), "seed": ("INT", {"forceInput": False})},
+            "optional": {"text_in": ("STRING", {"forceInput": True}), "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False})},
             "required": {
                 "gender": (['-'] + [rand_opt] + lists['gender'], {"default": '-'}),
                 "age": (['-'] + [rand_opt] + lists['age'], {"default": '-'}),

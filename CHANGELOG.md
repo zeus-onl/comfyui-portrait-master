@@ -1,3 +1,7 @@
+## 31.07.2026 (3.6.1 - Fork Fix by Marcus Haupt / zeus.onl)
+
+- Fixed: seed widget on PortraitMasterBaseCharacter, PortraitMasterSkinDetails, PortraitMasterStylePose, PortraitMasterMakeup, PortraitMasterFaceGenerator and legacy PortraitMaster node would show NaN after ComfyUI reload / session restore. Root cause: seed INT input was missing default/min/max in INPUT_TYPES, so the frontend had no valid fallback value to restore on reload. Added "default": 0, "min": 0, "max": 0xffffffffffffffff to all seed field definitions.
+
 ## 09.02.2026
 
 - Updated to version 3.6.0

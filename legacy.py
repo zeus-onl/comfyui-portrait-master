@@ -3,6 +3,12 @@
 # Version: 2.9.2 (legacy)
 # https://stefnoflore.it
 # https://ai-wiz.art
+#
+# --- FORK PATCH (zeus.onl / Marcus Haupt, 31.07.2026) ---
+# Fixed: seed widget defaulting to NaN after ComfyUI reload/session restore.
+# Cause: seed INT input in INPUT_TYPES had no default/min/max. Added
+# proper bounds. See CHANGELOG.md for details.
+# ----------------------------------------------------------
 
 import os
 import random
@@ -95,7 +101,7 @@ class PortraitMaster:
         max_float_value = 1.95
         return {
             "optional": {
-                "seed": ("INT", {"forceInput": False}),
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False}),
             },
             "required": {
                 "shot": (['-'] + shot_list, {
