@@ -1,5 +1,9 @@
 # ComfyUI Portrait Master
 
+> **🔧 This is a fork by [zeus-onl](https://github.com/zeus-onl) with a bugfix on top of upstream `florestefano1975/comfyui-portrait-master`.**
+>
+> **Fixed (v3.6.1):** the `seed` widget on all Portrait Master nodes (Base Character, Skin Details, Style & Pose, Make-up, Face Generator, and the legacy node) would show `NaN` after a ComfyUI reload or session restore. Root cause: the `seed` INT input was declared in `INPUT_TYPES` without `default`/`min`/`max`, so the frontend had no valid value to fall back to when restoring the widget state. Fix adds proper bounds (`"default": 0, "min": 0, "max": 0xffffffffffffffff`) to every seed field. See [CHANGELOG.md](CHANGELOG.md) for details.
+
 A comprehensive custom node for ComfyUI designed to help AI image creators generate detailed and professional prompts for human portraits. This powerful tool provides modular control over every aspect of portrait generation, from basic character features to advanced skin details and styling options.
 
 ## 🌟 Features
