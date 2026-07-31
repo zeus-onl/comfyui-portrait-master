@@ -152,11 +152,11 @@ class PortraitMasterBaseCharacter:
                 "face_balance_weight": ("FLOAT", {"default": 1, "step": 0.05, "min": 0, "max": max_float_value, "display": "slider"}),
                 "face_harmony": (['-'] + [rand_opt] + lists['face_harmony'], {"default": '-'}),
                 "face_harmony_weight": ("FLOAT", {"default": 1, "step": 0.05, "min": 0, "max": max_float_value, "display": "slider"}),
-                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False}),
                 "active": ("BOOLEAN", {"default": True}),
                 "load_preset": (["-- disabled --"] + preset_files, ),
                 "save_preset_as": ("STRING", {"default": ""}),
                 "save_preset": ("BOOLEAN", {"default": False}),
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False}),
             }
         }
 
@@ -353,11 +353,11 @@ class PortraitMasterSkinDetails:
                 "iris_details": ("FLOAT", {"default": 0,"min": 0,"max": max_float_value,"step": 0.05,"display": "slider"}),
                 "circular_iris": ("FLOAT", {"default": 0,"min": 0,"max": max_float_value,"step": 0.05,"display": "slider"}),
                 "circular_pupil": ("FLOAT", {"default": 0,"min": 0,"max": max_float_value,"step": 0.05,"display": "slider"}),
-                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False}),
                 "active": ("BOOLEAN", {"default": True}),
                 "load_preset": (["-- disabled --"] + preset_files, ),
                 "save_preset_as": ("STRING", {"default": ""}),
                 "save_preset": ("BOOLEAN", {"default": False}),
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False}),
             }
         }
 
@@ -450,11 +450,11 @@ class PortraitMasterStylePose:
                 "camera_distance": (['-'] + [rand_opt] + lists['camera_distance'], {"default": '-'}),
                 "camera_lens": (['-'] + [rand_opt] + lists['camera_lens'], {"default": '-'}),
                 "photorealism_improvement": ("BOOLEAN", {"default": True}),
-                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False}),
                 "active": ("BOOLEAN", {"default": True}),
                 "load_preset": (["-- disabled --"] + preset_files, ),
                 "save_preset_as": ("STRING", {"default": ""}),
                 "save_preset": ("BOOLEAN", {"default": False}),
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False}),
             }
         }
 
@@ -543,11 +543,11 @@ class PortraitMasterMakeup:
                 "lipstick_color": (['-'] + [rand_opt] + lists['lipstick_color'], {"default": '-'}),
                 "lip_gloss": ("BOOLEAN", {"default": False}),
                 "lip_gloss_color": (['-'] + [rand_opt] + lists['lip_gloss_color'], {"default": '-'}),
-                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False}),
                 "active": ("BOOLEAN", {"default": True}),
                 "load_preset": (["-- disabled --"] + preset_files, ),
                 "save_preset_as": ("STRING", {"default": ""}),
                 "save_preset": ("BOOLEAN", {"default": False}),
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False}),
             }
         }
 
@@ -618,11 +618,11 @@ class PortraitMasterFaceGenerator:
                 "eyebrows_shape": (['-'] + [rand_opt] + lists['eyebrows_shape'], {"default": '-'}),
                 "nose_shape": (['-'] + [rand_opt] + lists['nose_shape'], {"default": '-'}),
                 "face_symmetry": (['-'] + [rand_opt] + lists['face_symmetry'], {"default": '-'}),
-                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False}),
                 "active": ("BOOLEAN", {"default": True}),
                 "load_preset": (["-- disabled --"] + preset_files, ),
                 "save_preset_as": ("STRING", {"default": ""}),
                 "save_preset": ("BOOLEAN", {"default": False}),
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False}),
             }
         }
 
