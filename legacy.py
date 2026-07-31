@@ -101,7 +101,6 @@ class PortraitMaster:
         max_float_value = 1.95
         return {
             "optional": {
-                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False}),
             },
             "required": {
                 "shot": (['-'] + shot_list, {
@@ -411,6 +410,7 @@ class PortraitMaster:
                 "random_beard": ("BOOLEAN", {"default": False}),
                 "random_style_1": ("BOOLEAN", {"default": False}),
                 "random_style_2": ("BOOLEAN", {"default": False}),
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False}),
             }
         }
 

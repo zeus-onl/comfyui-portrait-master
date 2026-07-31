@@ -100,7 +100,7 @@ class PortraitMasterBaseCharacter:
         preset_files = get_presets(s.preset_class)
 
         return {
-            "optional": {"text_in": ("STRING", {"forceInput": True}), "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False})},
+            "optional": {"text_in": ("STRING", {"forceInput": True})},
             "required": {
                 "shot": (['-'] + [rand_opt] + lists['shot'], {"default": '-'}),
                 "shot_weight": ("FLOAT", {"default": 1, "step": 0.05, "min": 0, "max": max_float_value, "display": "slider"}),
@@ -152,6 +152,7 @@ class PortraitMasterBaseCharacter:
                 "face_balance_weight": ("FLOAT", {"default": 1, "step": 0.05, "min": 0, "max": max_float_value, "display": "slider"}),
                 "face_harmony": (['-'] + [rand_opt] + lists['face_harmony'], {"default": '-'}),
                 "face_harmony_weight": ("FLOAT", {"default": 1, "step": 0.05, "min": 0, "max": max_float_value, "display": "slider"}),
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False}),
                 "active": ("BOOLEAN", {"default": True}),
                 "load_preset": (["-- disabled --"] + preset_files, ),
                 "save_preset_as": ("STRING", {"default": ""}),
@@ -330,7 +331,7 @@ class PortraitMasterSkinDetails:
         max_float_value = 2
         preset_files = get_presets(s.preset_class)
         return {
-            "optional": {"text_in": ("STRING", {"forceInput": True}),"seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False})},
+            "optional": {"text_in": ("STRING", {"forceInput": True})},
             "required": {
                 "natural_skin": ("FLOAT", {"default": 0,"min": 0,"max": max_float_value,"step": 0.05,"display": "slider"}),
                 "bare_face": ("FLOAT", {"default": 0,"min": 0,"max": max_float_value,"step": 0.05,"display": "slider"}),
@@ -352,6 +353,7 @@ class PortraitMasterSkinDetails:
                 "iris_details": ("FLOAT", {"default": 0,"min": 0,"max": max_float_value,"step": 0.05,"display": "slider"}),
                 "circular_iris": ("FLOAT", {"default": 0,"min": 0,"max": max_float_value,"step": 0.05,"display": "slider"}),
                 "circular_pupil": ("FLOAT", {"default": 0,"min": 0,"max": max_float_value,"step": 0.05,"display": "slider"}),
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False}),
                 "active": ("BOOLEAN", {"default": True}),
                 "load_preset": (["-- disabled --"] + preset_files, ),
                 "save_preset_as": ("STRING", {"default": ""}),
@@ -430,7 +432,7 @@ class PortraitMasterStylePose:
         max_float_value = 2
         preset_files = get_presets(s.preset_class)
         return {
-            "optional": {"text_in": ("STRING", {"forceInput": True}), "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False})},
+            "optional": {"text_in": ("STRING", {"forceInput": True})},
             "required": {
                 "model_pose": (['-'] + [rand_opt] + lists['model_pose'], {"default": '-'}),
                 "clothes": (['-'] + [rand_opt] + lists['clothes'], {"default": '-'}),
@@ -448,6 +450,7 @@ class PortraitMasterStylePose:
                 "camera_distance": (['-'] + [rand_opt] + lists['camera_distance'], {"default": '-'}),
                 "camera_lens": (['-'] + [rand_opt] + lists['camera_lens'], {"default": '-'}),
                 "photorealism_improvement": ("BOOLEAN", {"default": True}),
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False}),
                 "active": ("BOOLEAN", {"default": True}),
                 "load_preset": (["-- disabled --"] + preset_files, ),
                 "save_preset_as": ("STRING", {"default": ""}),
@@ -524,7 +527,7 @@ class PortraitMasterMakeup:
         max_float_value = 2
         preset_files = get_presets(s.preset_class)
         return {
-            "optional": {"text_in": ("STRING", {"forceInput": True}), "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False})},
+            "optional": {"text_in": ("STRING", {"forceInput": True})},
             "required": {
                 "makeup_style": (['-'] + [rand_opt] + lists['makeup'], {"default": '-'}),
                 "makeup_color": (['-'] + [rand_opt] + lists['makeup_color'], {"default": '-'}),
@@ -540,6 +543,7 @@ class PortraitMasterMakeup:
                 "lipstick_color": (['-'] + [rand_opt] + lists['lipstick_color'], {"default": '-'}),
                 "lip_gloss": ("BOOLEAN", {"default": False}),
                 "lip_gloss_color": (['-'] + [rand_opt] + lists['lip_gloss_color'], {"default": '-'}),
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False}),
                 "active": ("BOOLEAN", {"default": True}),
                 "load_preset": (["-- disabled --"] + preset_files, ),
                 "save_preset_as": ("STRING", {"default": ""}),
@@ -598,7 +602,7 @@ class PortraitMasterFaceGenerator:
     def INPUT_TYPES(s):
         preset_files = get_presets(s.preset_class)
         return {
-            "optional": {"text_in": ("STRING", {"forceInput": True}), "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False})},
+            "optional": {"text_in": ("STRING", {"forceInput": True})},
             "required": {
                 "gender": (['-'] + [rand_opt] + lists['gender'], {"default": '-'}),
                 "age": (['-'] + [rand_opt] + lists['age'], {"default": '-'}),
@@ -614,6 +618,7 @@ class PortraitMasterFaceGenerator:
                 "eyebrows_shape": (['-'] + [rand_opt] + lists['eyebrows_shape'], {"default": '-'}),
                 "nose_shape": (['-'] + [rand_opt] + lists['nose_shape'], {"default": '-'}),
                 "face_symmetry": (['-'] + [rand_opt] + lists['face_symmetry'], {"default": '-'}),
+                "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff, "forceInput": False}),
                 "active": ("BOOLEAN", {"default": True}),
                 "load_preset": (["-- disabled --"] + preset_files, ),
                 "save_preset_as": ("STRING", {"default": ""}),
